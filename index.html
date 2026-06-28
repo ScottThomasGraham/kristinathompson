@@ -138,17 +138,17 @@
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transform: scale(1.04);
-    transition: opacity 2.4s var(--ease);
+    transform: scale(1.05);
+    /* Ken Burns as a long transform TRANSITION (not a keyframe animation): when a
+       slide loses .is-active mid-zoom, transform eases back instead of snapping —
+       the snap is what caused the visible jump during the cross-fade. The 8s ramp
+       is longer than the 6s swap interval, so the zoom never settles-then-jumps. */
+    transition: opacity 2.4s var(--ease), transform 8s linear;
     will-change: opacity, transform;
   }
   .hero-slide.is-active {
     opacity: 1;
-    animation: kenburns 9s ease-out forwards;
-  }
-  @keyframes kenburns {
-    from { transform: scale(1.04); }
-    to   { transform: scale(1.16); }
+    transform: scale(1.16);
   }
   .hero-scrim {
     position: absolute; inset: 0; z-index: -1;
@@ -766,6 +766,16 @@
   }
   function hideStatus() { statusEl.hidden = true; }
 
+  /* Fisher–Yates: return a randomized copy (so image order is shuffled everywhere) */
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
   /* ===================================================================
      HERO — random featured slides, slow cinematic cross-fade
   =================================================================== */
@@ -1105,7 +1115,8 @@
   }
 
   function render(items) {
-    ALL_ITEMS = items;
+    // randomize order everywhere — grid + lightbox nav (hero shuffles its own copy too)
+    ALL_ITEMS = shuffle(items);
     if (!ALL_ITEMS.length) {
       showStatus("Gallery loading…", "The collection is being composed. Please check back soon.");
       return;
