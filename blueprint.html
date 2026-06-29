@@ -91,6 +91,11 @@
   .cgrid figure:hover img{transform:scale(1.05);}
   .cgrid figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .6rem;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gilt);background:linear-gradient(transparent,rgba(10,10,11,.85));}
 
+  /* reference sheet */
+  .sheet{display:grid;grid-template-columns:1.35fr .85fr;gap:1rem;align-items:start;}
+  .sheet .plate img{width:100%;}
+  @media (max-width:760px){.sheet{grid-template-columns:1fr;}}
+
   /* downloads */
   .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
   .card{display:flex;flex-direction:column;gap:.6rem;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.4rem;transition:border-color .3s var(--ease),transform .3s var(--ease);}
@@ -199,9 +204,20 @@
       <div class="cgrid" id="cgrid"></div>
     </section>
 
-    <!-- N°05 DOWNLOADS -->
+    <!-- N°05 REFERENCE SHEET -->
     <section class="block">
-      <div class="label"><span class="idx">N°05</span><span class="eyebrow">Get Started</span></div>
+      <div class="label"><span class="idx">N°05</span><span class="eyebrow">Reference Sheet</span></div>
+      <h2 class="h">Front, side, back — and a clean T-pose.</h2>
+      <p class="body" style="margin-bottom:1.6rem">A full character turnaround and a neutral T-pose — exactly the reference an artist, an animator, or an image-to-3D model needs to rebuild her in three dimensions. The 3D model below is built from these.</p>
+      <div class="sheet">
+        <figure class="plate"><img src="./blueprint/turnaround.jpg" alt="Kristina Thompson — front, side and back turnaround" loading="lazy" /><figcaption>Turnaround — Front · Side · Back</figcaption></figure>
+        <figure class="plate"><img src="./blueprint/tpose.jpg" alt="Kristina Thompson — neutral T-pose reference" loading="lazy" /><figcaption>T-Pose — Neutral Reference</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- N°06 DOWNLOADS -->
+    <section class="block">
+      <div class="label"><span class="idx">N°06</span><span class="eyebrow">Get Started</span></div>
       <h2 class="h">Everything you need.</h2>
       <div class="dl">
         <a class="card" href="./blueprint/master-reference.jpg" download>
@@ -219,12 +235,17 @@
           <span class="cd">A trained model for Stable Diffusion / Flux — load it and generate her in any scene, instantly. In training now.</span>
           <span class="cta">Coming soon ◴</span>
         </div>
+        <div class="card soon">
+          <span class="ct">3D Model</span>
+          <span class="cd">A downloadable <code style="font-family:var(--mono);font-size:.8em">.glb</code> mesh built from her turnaround — spin her, pose her, drop her into any 3D scene. In production.</span>
+          <span class="cta">Coming soon ◴</span>
+        </div>
       </div>
     </section>
 
     <!-- N°06 LICENSE -->
     <section class="block">
-      <div class="label"><span class="idx">N°06</span><span class="eyebrow">Usage &amp; License</span></div>
+      <div class="label"><span class="idx">N°07</span><span class="eyebrow">Usage &amp; License</span></div>
       <h2 class="h">Yours to use.</h2>
       <div class="lic">
         <h3>Free for personal &amp; business use</h3>
