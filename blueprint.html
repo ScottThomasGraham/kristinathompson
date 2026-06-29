@@ -95,6 +95,10 @@
   .sheet{display:grid;grid-template-columns:1.35fr .85fr;gap:1rem;align-items:start;}
   .sheet .plate img{width:100%;}
   @media (max-width:760px){.sheet{grid-template-columns:1fr;}}
+  .spin-row{display:grid;grid-template-columns:300px 1fr;gap:2.2rem;align-items:center;margin-bottom:2.2rem;}
+  .spin-plate{margin:0;}
+  .spin-plate video{width:100%;border-radius:2px;display:block;}
+  @media (max-width:680px){.spin-row{grid-template-columns:1fr;}.spin-plate{max-width:300px;margin:0 auto;}}
 
   /* downloads */
   .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;}
@@ -206,9 +210,18 @@
 
     <!-- N°05 REFERENCE SHEET -->
     <section class="block">
-      <div class="label"><span class="idx">N°05</span><span class="eyebrow">Reference Sheet</span></div>
-      <h2 class="h">Front, side, back — and a clean T-pose.</h2>
-      <p class="body" style="margin-bottom:1.6rem">A full character turnaround and a neutral T-pose — exactly the reference an artist, an animator, or an image-to-3D model needs to rebuild her in three dimensions. The 3D model below is built from these.</p>
+      <div class="label"><span class="idx">N°05</span><span class="eyebrow">Her, In 3D</span></div>
+      <h2 class="h">From a single shot to a full 3D spin.</h2>
+      <div class="spin-row">
+        <figure class="plate spin-plate">
+          <video src="./blueprint/kr1stina-spin.mp4" poster="./blueprint/kr1stina-spin-poster.jpg" autoplay loop muted playsinline preload="metadata"></video>
+          <figcaption>Photo → 3D · 360° turntable</figcaption>
+        </figure>
+        <div>
+          <p class="body">She doesn't just sit on a page — she <em>turns</em>. From a single shot to a full three-dimensional form, Kristina is built to move, pose, and drop into any scene you can imagine. A downloadable 3D model is rendering now.</p>
+        </div>
+      </div>
+      <p class="body" style="margin-bottom:1.6rem">And the reference behind it — a full character turnaround and a neutral T-pose, exactly what an artist, an animator, or an image-to-3D model needs to rebuild her in three dimensions.</p>
       <div class="sheet">
         <figure class="plate"><img src="./blueprint/turnaround.jpg" alt="Kristina Thompson — front, side and back turnaround" loading="lazy" /><figcaption>Turnaround — Front · Side · Back</figcaption></figure>
         <figure class="plate"><img src="./blueprint/tpose.jpg" alt="Kristina Thompson — neutral T-pose reference" loading="lazy" /><figcaption>T-Pose — Neutral Reference</figcaption></figure>
