@@ -1,0 +1,35 @@
+{
+  "character": "Kristina Thompson",
+  "type": "Open-source synthetic character",
+  "origin": "100% AI-generated via text-to-image. No real-person reference image was ever used. She is a fully original synthetic muse.",
+  "version": "1.0",
+  "license": "CC BY 4.0 — free to use, remix, and build upon, including commercially, with attribution to 'Kristina Thompson (kristinathompson.com)'. She is a synthetic character; do not present her as a real individual.",
+  "appearance": {
+    "hair": "Vibrant fiery red, long, loose natural waves and curls",
+    "eyes": "Green",
+    "skin": "Fair, warm, sun-kissed; realistic texture",
+    "build": "Slim, athletic, hourglass",
+    "apparent_age": "Mid-20s",
+    "distinguishing_marks": "Small flower (lily) tattoo low on the abdomen; often a thin black band on the wrist",
+    "signature_aesthetic": "Editorial glamour with a little danger"
+  },
+  "genesis": {
+    "note": "The canonical text-to-image prompt that defines her look. No reference image.",
+    "platform": "a2e (video.a2e.ai) — Text to Image",
+    "model": "A2E",
+    "resolution": "1080P",
+    "aspect_ratio": "9:16",
+    "reference_images": "none",
+    "prompt": "AI character with vibrant red curly hair, wearing black lace lingerie set including a push-up bra and thong, with matching lace garters on thighs, standing against a plain white background, soft studio lighting, realistic skin texture, detailed facial features, direct gaze, full-body shot, high-resolution, 8k"
+  },
+  "scene_recipe": {
+    "note": "To place her in any scene while holding her identity, head-swap the master reference onto a generated body using this style prefix, then append your scene.",
+    "style_prefix": "Candid photo of the woman in the reference photo, keeping her exact face, hair, and outfit,",
+    "example_scene": "as a heroic Jedi in layered brown robes igniting a glowing blue lightsaber in a torch-lit stone temple, cinematic, face clearly visible",
+    "pipeline": "a2e image-to-image / face-swap (model gpt-image-1.5), aspect 2:3"
+  },
+  "assets": {
+    "master_reference": "blueprint/master-reference.jpg",
+    "lora": "coming soon — trained on the full gallery for use in Stable Diffusion / Flux"
+  }
+}
