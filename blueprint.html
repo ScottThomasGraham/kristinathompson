@@ -167,17 +167,16 @@
     <section class="block">
       <div class="label"><span class="idx">N°03</span><span class="eyebrow">The Genesis Prompt</span></div>
       <h2 class="h">The exact words that make her.</h2>
-      <p class="body" style="margin-bottom:1.6rem">This is the canonical prompt — no reference image attached. Run it on any capable text-to-image model and you'll summon her signature look.</p>
+      <p class="body" style="margin-bottom:1.6rem">No reference image — just language, but <strong>feature-locked</strong>: her face, eyes, hair, figure, and signature lily tattoo are all pinned, so you summon <em>her</em>, not a random redhead. For a pixel-exact, same-every-time lock, pair it with a fixed seed, the master reference plate below, or her LoRA.</p>
       <div class="recipe">
         <div class="promptcard">
-          <div class="ph"><span>Genesis · Text-to-Image</span><button class="copybtn" id="copyGen">Copy</button></div>
-          <pre id="genText">AI character with vibrant red curly hair, wearing black lace lingerie set including a push-up bra and thong, with matching lace garters on thighs, standing against a plain white background, soft studio lighting, realistic skin texture, detailed facial features, direct gaze, full-body shot, high-resolution, 8k</pre>
+          <div class="ph"><span>Genesis · Feature-Locked Prompt</span><button class="copybtn" id="copyGen">Copy</button></div>
+          <pre id="genText">Ultra-photorealistic full-body studio portrait of a beautiful 25-year-old synthetic woman. Long, voluminous, vibrant fiery copper-red hair in loose natural curls, side-parted with soft face-framing layers cascading past her chest. Oval face with high, soft cheekbones and a delicate jawline; fair, warm, lightly sun-kissed skin with realistic pores and faint freckles across the nose. Large, almond-shaped green eyes, slightly wide-set, with long dark lashes and well-defined auburn eyebrows. Straight, refined nose with a subtly upturned tip. Full lips with a sharp cupid's bow and a natural rosy-nude tint, in a relaxed, confident half-smile. Slim, athletic hourglass figure with a narrow waist and an even golden tan. A small, delicate lily tattoo low on her abdomen. Direct, knowing gaze straight into the camera. Black lace lingerie set, plain white seamless backdrop, soft even studio lighting, shallow depth of field, hyper-detailed skin and hair, sharp focus, 8k, photorealistic.</pre>
           <div class="metarow">
-            <span class="chip">platform: a2e · text-to-image</span>
-            <span class="chip">model: A2E</span>
-            <span class="chip">resolution: 1080P</span>
-            <span class="chip">aspect: 9:16</span>
-            <span class="chip">reference: none</span>
+            <span class="chip">use on: Flux · SDXL · Midjourney · a2e</span>
+            <span class="chip">reference: none needed</span>
+            <span class="chip">note: a2e caps at 500 chars — trim to taste</span>
+            <span class="chip">lock it: add a fixed seed</span>
           </div>
         </div>
         <div class="promptcard">

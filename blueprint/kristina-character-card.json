@@ -14,13 +14,11 @@
     "signature_aesthetic": "Editorial glamour with a little danger"
   },
   "genesis": {
-    "note": "The canonical text-to-image prompt that defines her look. No reference image.",
-    "platform": "a2e (video.a2e.ai) — Text to Image",
-    "model": "A2E",
-    "resolution": "1080P",
-    "aspect_ratio": "9:16",
+    "note": "The canonical FEATURE-LOCKED text-to-image prompt. No reference image. It pins her face, eyes, hair, figure, and signature lily tattoo so you reproduce HER, not a random redhead. Prompt detail collapses most of the variance; for a pixel-exact, same-every-time result, also use a fixed seed, the master reference (face-swap), or the LoRA.",
+    "use_on": "Flux, SDXL, Midjourney, or any capable text-to-image model. Note: a2e text-to-image caps prompts at 500 characters — trim if generating there.",
     "reference_images": "none",
-    "prompt": "AI character with vibrant red curly hair, wearing black lace lingerie set including a push-up bra and thong, with matching lace garters on thighs, standing against a plain white background, soft studio lighting, realistic skin texture, detailed facial features, direct gaze, full-body shot, high-resolution, 8k"
+    "prompt": "Ultra-photorealistic full-body studio portrait of a beautiful 25-year-old synthetic woman. Long, voluminous, vibrant fiery copper-red hair in loose natural curls, side-parted with soft face-framing layers cascading past her chest. Oval face with high, soft cheekbones and a delicate jawline; fair, warm, lightly sun-kissed skin with realistic pores and faint freckles across the nose. Large, almond-shaped green eyes, slightly wide-set, with long dark lashes and well-defined auburn eyebrows. Straight, refined nose with a subtly upturned tip. Full lips with a sharp cupid's bow and a natural rosy-nude tint, in a relaxed, confident half-smile. Slim, athletic hourglass figure with a narrow waist and an even golden tan. A small, delicate lily tattoo low on her abdomen. Direct, knowing gaze straight into the camera. Black lace lingerie set, plain white seamless backdrop, soft even studio lighting, shallow depth of field, hyper-detailed skin and hair, sharp focus, 8k, photorealistic.",
+    "original_short_prompt": "AI character with vibrant red curly hair, wearing black lace lingerie set including a push-up bra and thong, with matching lace garters on thighs, standing against a plain white background, soft studio lighting, realistic skin texture, detailed facial features, direct gaze, full-body shot, high-resolution, 8k — the original lucky prompt that first generated her, kept for provenance"
   },
   "scene_recipe": {
     "note": "To place her in any scene while holding her identity, head-swap the master reference onto a generated body using this style prefix, then append your scene.",
