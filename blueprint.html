@@ -110,9 +110,19 @@
   .sheet{display:grid;grid-template-columns:1.35fr .85fr;gap:1rem;align-items:start;}
   .sheet .plate img{width:100%;}
   @media (max-width:760px){.sheet{grid-template-columns:1fr;}}
-  .spin-row{display:grid;grid-template-columns:300px 1fr;gap:2.2rem;align-items:center;margin-bottom:2.2rem;}
+  .spin-row{display:grid;grid-template-columns:300px 300px 1fr;gap:2.2rem;align-items:center;margin-bottom:2.2rem;}
+  @media (max-width:980px){.spin-row{grid-template-columns:300px 300px;} .spin-row > div{grid-column:1 / -1;}}
   .spin-plate{margin:0;}
   .spin-plate video{width:100%;border-radius:2px;display:block;}
+  #kt3d{position:relative;width:100%;aspect-ratio:496/864;border-radius:2px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%, #17171a 0%, #0a0a0b 70%);cursor:grab;touch-action:none;}
+  #kt3d:active{cursor:grabbing;}
+  #kt3d canvas{display:block;width:100%;height:100%;}
+  #kt3d-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;filter:grayscale(1);transition:opacity .8s var(--ease);pointer-events:none;}
+  #kt3d.ready #kt3d-poster{opacity:0;}
+  .v-toggle{display:flex;gap:.4rem;margin-top:.6rem;}
+  .v-toggle button{flex:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem 0;background:transparent;border:1px solid var(--line);border-radius:2px;color:var(--muted,#888);cursor:pointer;transition:border-color .3s var(--ease),color .3s var(--ease);}
+  .v-toggle button:hover{border-color:var(--gold);}
+  .v-toggle button.on{border-color:var(--gold);color:var(--gold);}
   @media (max-width:680px){.spin-row{grid-template-columns:1fr;}.spin-plate{max-width:300px;margin:0 auto;}}
 
   /* downloads */
@@ -176,12 +186,12 @@
       <div class="label"><span class="idx">N°02</span><span class="eyebrow">The Specification</span></div>
       <h2 class="h">Her signature look.</h2>
       <dl class="spec">
-        <div><dt>Hair</dt><dd>Vibrant fiery red — long, loose natural waves</dd></div>
-        <div><dt>Eyes</dt><dd>Green</dd></div>
+        <div><dt>Hair</dt><dd>Deep copper-red, darker roots — long glossy curls</dd></div>
+        <div><dt>Eyes</dt><dd>Green-hazel, slightly hooded — smoky liner</dd></div>
         <div><dt>Skin</dt><dd>Fair, warm, sun-kissed — realistic texture</dd></div>
-        <div><dt>Build</dt><dd>Slim · athletic · hourglass</dd></div>
+        <div><dt>Build</dt><dd>Curvy hourglass — full bust · narrow waist · wide hips</dd></div>
         <div><dt>Apparent age</dt><dd>Mid-twenties</dd></div>
-        <div><dt>Signature mark</dt><dd>Small lily tattoo, low on the abdomen</dd></div>
+        <div><dt>Signature mark</dt><dd>Orange lily tattoo just below the navel · black cord bracelet</dd></div>
         <div><dt>Aesthetic</dt><dd>Editorial glamour with a little danger</dd></div>
         <div><dt>Use</dt><dd>Personal &amp; commercial — free</dd></div>
       </dl>
@@ -195,7 +205,7 @@
       <div class="recipe">
         <div class="promptcard">
           <div class="ph"><span>Feature-Locked Prompt</span><button class="copybtn" id="copyGen">Copy</button></div>
-          <pre id="genText">Ultra-photorealistic full-body studio portrait of a beautiful 25-year-old synthetic woman. Long, voluminous, vibrant fiery copper-red hair in loose natural curls, side-parted with soft face-framing layers cascading past her chest. Oval face with high, soft cheekbones and a delicate jawline; fair, warm, lightly sun-kissed skin with realistic pores and faint freckles across the nose. Large, almond-shaped green eyes, slightly wide-set, with long dark lashes and well-defined auburn eyebrows. Straight, refined nose with a subtly upturned tip. Full lips with a sharp cupid's bow and a natural rosy-nude tint, in a relaxed, confident half-smile. Slim, athletic hourglass figure with a narrow waist and an even golden tan. A small, delicate lily tattoo low on her abdomen. Direct, knowing gaze straight into the camera. Black lace lingerie set, plain white seamless backdrop, soft even studio lighting, shallow depth of field, hyper-detailed skin and hair, sharp focus, 8k, photorealistic.</pre>
+          <pre id="genText">Ultra-photorealistic full-body studio portrait of a stunning 25-year-old woman with soft, natural facial features. Long oval face with fuller cheeks and a softly rounded chin; medium, slightly hooded green-hazel eyes with smoky winged eyeliner; arched auburn-brown eyebrows; straight medium nose; natural medium-full lips with a soft cupid's bow, glossy rose-pink, closed in a relaxed knowing smirk. Deep copper-red hair with darker auburn roots, side-parted, falling in long glossy defined loose curls past her chest. Warm, lightly tanned fair skin with realistic pores and faint freckles. Curvy hourglass figure with a full natural bust, narrow waist, softly toned stomach, wide hips and full thighs. A small orange-red lily tattoo with dark outlines centered low on her abdomen, just below the navel. Her only jewelry is a thin black cord bracelet; glossy red-pink nails. Direct, confident gaze straight into the camera. Black lace push-up bra and lace thong, sheer black lace-top thigh-high stockings, plain white seamless backdrop, soft even studio lighting, hyper-detailed skin and hair, sharp focus, 8k, photorealistic.</pre>
           <div class="metarow">
             <span class="chip">use on: Flux · SDXL · Midjourney · a2e</span>
             <span class="chip">reference: none needed</span>
@@ -230,10 +240,20 @@
       <div class="spin-row">
         <figure class="plate spin-plate">
           <video src="./blueprint/kr1stina-spin.mp4" poster="./blueprint/kr1stina-spin-poster.jpg" autoplay loop muted playsinline preload="metadata"></video>
-          <figcaption>Photo → 3D · 360° turntable</figcaption>
+          <figcaption>Her mesh · 360° turntable · textured + wireframe</figcaption>
+        </figure>
+        <figure class="plate spin-plate">
+          <div id="kt3d" aria-label="Kristina Thompson — interactive 3D model">
+            <img id="kt3d-poster" src="./blueprint/kr1stina-spin-poster.jpg" alt="Kristina Thompson — 3D model loading" />
+          </div>
+          <div class="v-toggle" role="group" aria-label="3D view mode">
+            <button type="button" data-mode="textured" class="on">Textured</button>
+            <button type="button" data-mode="wireframe">Wireframe</button>
+          </div>
+          <figcaption>Real geometry · auto-spin · drag to orbit</figcaption>
         </figure>
         <div>
-          <p class="body">She doesn't just sit on a page — she <em>turns</em>. From a single shot to a full three-dimensional form, Kristina is built to move, pose, and drop into any scene you can imagine. A downloadable 3D model is rendering now.</p>
+          <p class="body">She doesn't just sit on a page — she <em>turns</em>. On the left, the cinematic turntable. On the right, her actual 3D mesh live in your browser: real geometry you can spin, inspect as a wireframe, and download below to pose in any 3D scene you can imagine.</p>
         </div>
       </div>
       <p class="body" style="margin-bottom:1.6rem">And the reference behind it — a full character turnaround and a neutral T-pose, exactly what an artist, an animator, or an image-to-3D model needs to rebuild her in three dimensions.</p>
@@ -263,11 +283,11 @@
           <span class="cd">A trained model for Stable Diffusion / Flux — load it and generate her in any scene, instantly. In training now.</span>
           <span class="cta">Coming soon ◴</span>
         </div>
-        <div class="card soon">
+        <a class="card" href="./blueprint/kr1stina.glb" download>
           <span class="ct">3D Model</span>
-          <span class="cd">A downloadable <code style="font-family:var(--mono);font-size:.8em">.glb</code> mesh built from her turnaround — spin her, pose her, drop her into any 3D scene. In production.</span>
-          <span class="cta">Coming soon ◴</span>
-        </div>
+          <span class="cd">Her full 3D mesh with PBR textures as a <code style="font-family:var(--mono);font-size:.8em">.glb</code> — the same model spinning above. Drop her into Blender, Unity, Unreal, or any 3D scene.</span>
+          <span class="cta">Download GLB →</span>
+        </a>
       </div>
     </section>
 
@@ -321,6 +341,69 @@
     }
     wireCopy('copyGen','genText');
     wireCopy('copyScene','sceneText');
+  </script>
+
+  <!-- 3D viewer: her real mesh, auto-spin, textured/wireframe toggle -->
+  <script type="importmap">
+  {"imports":{
+    "three":"https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }}
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const host = document.getElementById('kt3d');
+    const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    host.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+    const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(2, 3, 4); scene.add(key);
+    const rim = new THREE.DirectionalLight(0xc9a86a, 0.8); rim.position.set(-3, 2, -3); scene.add(rim);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; controls.enablePan = false; controls.enableZoom = false;
+    controls.autoRotate = true; controls.autoRotateSpeed = 1.6;
+
+    const wireMat = new THREE.MeshBasicMaterial({ color:0xc9a86a, wireframe:true, transparent:true, opacity:0.16, depthWrite:false, blending:THREE.AdditiveBlending });
+    const meshes = [];
+    let mode = 'textured';
+
+    new GLTFLoader().load('./blueprint/kr1stina.glb', (gltf) => {
+      const root = gltf.scene;
+      // center + frame her
+      const box = new THREE.Box3().setFromObject(root);
+      const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+      root.position.sub(center);
+      const dist = Math.max(size.y, size.x) / (2 * Math.tan(camera.fov * Math.PI / 360)) * 1.25;
+      camera.position.set(0, size.y * 0.02, dist);
+      controls.target.set(0, 0, 0);
+      root.traverse(o => { if (o.isMesh) { meshes.push({ mesh:o, mat:o.material }); } });
+      scene.add(root);
+      host.classList.add('ready');
+    }, undefined, (e) => console.warn('kt3d load failed', e));
+
+    function setMode(m) {
+      mode = m;
+      for (const { mesh, mat } of meshes) mesh.material = (m === 'wireframe') ? wireMat : mat;
+      document.querySelectorAll('.v-toggle button').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+    }
+    document.querySelectorAll('.v-toggle button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+
+    function fit() {
+      const w = host.clientWidth, h = host.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h; camera.updateProjectionMatrix();
+    }
+    new ResizeObserver(fit).observe(host); fit();
+
+    renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
   </script>
 
 </body>
